@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
     'rest_framework', # Django REST framework(API 구축용)
     'corsheaders', # CORS 설정용
     'product', # 생성한 product 앱
+    'rest_framework_simplejwt', # JWT 인증용
+    'user', # 생성한 user 앱 추가
 ]
 
 MIDDLEWARE = [
@@ -59,6 +62,30 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",
     # 필요하다면 React 개발 서버의 포트를 확인하여 추가하기
 ]
+
+# Django REST Framework (DRF) 설정
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        # 기본 인증 클래스로 JWT 사용을 설정합니다.
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # 나중에 SessionAuthentication 등도 추가될 수 있습니다.
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    )
+}
+
+
+# JWT 설정 (만료 시간 등)
+SIMPLE_JWT = {
+    # Access Token 만료 시간 (예: 5분)
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5), 
+    # Refresh Token 만료 시간 (예: 1일)
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    # 토큰 타입 헤더 (Bearer)
+    "AUTH_HEADER_TYPES": ("Bearer",),
+}
+
 
 ROOT_URLCONF = 'store_project.urls'
 
