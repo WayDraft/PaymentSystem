@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../../context/AuthContext.jsx';
 
 export default function Header() {
   // Context에서 필요한 모든 상태와 함수를 가져옴
