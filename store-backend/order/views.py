@@ -3,34 +3,54 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from .models import Order
+from product.models import Product  # 재고 차감을 위해 Product 모델 임포트
+from django.db import transaction  # 안전한 처리를 위해 트랜잭션 사용
 
 class PaymentCompleteView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
         payment_id = request.data.get('payment_id')
+        product_id = request.data.get('product_id') # 프론트엔드에서 전달받아야 함
         
         # 1. 포트원 API를 통해 결제 정보 조회 (V2)
-        # 실제 운영시에는 PortOne API Secret을 사용하여 Authorization 헤더를 넣어야 함
-        portone_api_url = f"8u2Ms8nD0vtXwDQ4C2QGo7M48Reldh9olY8rLuGZx7r1TXV4WbVv7LBJItHmcqnsjyrdjhfe6c9kMnS4Q2FQ==/v2/payments/{payment_id}"
+        portone_api_url = f"https://api.portone.io/payments/{payment_id}"
         headers = {
-            "Authorization": "PortOne YOUR_PORTONE_API_SECRET" # 포트원 콘솔에서 발급
+            "Authorization": "PortOne YOUR_PORTONE_API_SECRET",
+            "Content-Type": "application/json"
         }
         
         response = requests.get(portone_api_url, headers=headers)
         payment_data = response.json()
 
-        # 2. 결제 상태 확인 및 DB 저장
+        # 2. 결제 상태 확인 및 처리
         if response.status_code == 200 and payment_data.get('status') == 'PAID':
-            # 결제 금액 검증 로직 추가 가능 (payment_data['amount']['total'])
             
-            Order.objects.create(
-                user=request.user,
-                payment_id=payment_id,
-                order_name=payment_data.get('orderName'),
-                amount=payment_data['amount']['total'],
-                status='PAID'
-            )
+            # 데이터 정합성을 위해 트랜잭션(하나라도 실패하면 취소)으로 묶어줍니다.
+            with transaction.atomic():
+                # [1] 주문 내역 저장
+                Order.objects.create(
+                    user=request.user,
+                    payment_id=payment_id,
+                    order_name=payment_data.get('orderName'),
+                    amount=payment_data['amount']['total'],
+                    status='PAID',
+                    # 만약 모델에 추가하셨다면 아래 필드도 포함
+                    # address=request.data.get('address'),
+                    # phone=request.data.get('phone')
+                )
+
+                # [2] 재고 차감 로직 추가 위치!
+                try:
+                    product = Product.objects.get(id=product_id)
+                    if product.stock >= 1: # 재고가 있을 때만
+                        product.stock -= 1
+                        product.save()
+                    else:
+                        return Response({"status": "fail", "message": "재고가 부족합니다."}, status=400)
+                except Product.DoesNotExist:
+                    return Response({"status": "fail", "message": "상품 정보를 찾을 수 없습니다."}, status=400)
+
             return Response({"status": "success"})
         
         return Response({"status": "fail", "message": "결제 검증 실패"}, status=400)

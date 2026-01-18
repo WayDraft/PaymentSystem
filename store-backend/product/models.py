@@ -18,6 +18,7 @@ class Product(models.Model):
     description = models.TextField(blank=True)
     image_url = models.URLField(max_length=500, blank=True)
     is_active = models.BooleanField(default=True)
+    stock = models.IntegerField(default=100, verbose_name="재고 수량")  # 재고 수량 필드 추가, default=100
 
     class Meta:
         ordering = ['name']
