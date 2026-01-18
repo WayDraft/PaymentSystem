@@ -27,6 +27,7 @@ export const handlePayment = async (orderData) => {
     // 3. 백엔드에 결제 검증 요청 (포트원이 준 paymentId 전달)
     const validation = await apiClient.post('/order/payment-complete/', {
       paymentId: response.paymentId,
+      product_id: orderData.productId, // <- 백엔드 변수명에 맞춰 전달
     });
 
     if (validation.data.status === 'success') {

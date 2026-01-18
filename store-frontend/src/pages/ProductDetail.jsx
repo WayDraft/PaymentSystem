@@ -26,30 +26,33 @@ export default function ProductDetail() {
       .catch(err => console.error("상품 로딩 실패", err));
   }, [id]);
 
-  const onBuyNow = () => {
-    if (!user) {
-      alert("로그인이 필요한 서비스입니다.");
-      navigate("/login");
-      return;
-    }
+// onBuyNow 함수 부분 수정
+const onBuyNow = () => {
+  if (!user) {
+    alert("로그인이 필요한 서비스입니다.");
+    navigate("/login");
+    return;
+  }
 
-    if (!address || !phone) {
-      alert("배송지와 연락처를 정확히 입력해주세요.");
-      return;
-    }
-  
-    const orderData = {
-      name: product.name,
-      price: product.price,
-      username: user.username,
-      email: user.email,
-      address, 
-      phone,
-      memo
-    };
+  if (!address || !phone) {
+    alert("배송지와 연락처를 정확히 입력해주세요.");
+    return;
+  }
 
-    handlePayment(orderData);
+  const orderData = {
+    productId: product.id, // <<-- 상품 ID 추가
+    name: product.name,
+    price: product.price,
+    username: user.username,
+    email: user.email,
+    address,
+    phone,
+    memo
   };
+
+  handlePayment(orderData); // paymentService로 전달
+};
+
 
   if (loading) return <div className="py-20 text-center text-gray-500">로딩 중...</div>;
   if (!product) return <div className="py-20 text-center text-gray-500">상품을 찾을 수 없습니다.</div>;

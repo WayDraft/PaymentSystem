@@ -54,3 +54,19 @@ class PaymentCompleteView(APIView):
             return Response({"status": "success"})
         
         return Response({"status": "fail", "message": "결제 검증 실패"}, status=400)
+
+# order/views.py (기존 코드 아래에 추가)
+from .serializers import OrderListSerializer # Serializer 임포트 추가
+
+class OrderListView(APIView):
+    # 인증된 사용자만 자신의 주문 내역을 볼 수 있어야 합니다.
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        # 현재 로그인한 사용자의 주문 내역만 최신순으로 가져옵니다.
+        orders = Order.objects.filter(user=request.user).order_by('-created_at')
+        
+        # 가져온 데이터를 Serializer를 통해 JSON으로 변환합니다.
+        serializer = OrderListSerializer(orders, many=True)
+        
+        return Response(serializer.data)

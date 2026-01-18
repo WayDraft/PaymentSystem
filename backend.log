@@ -1,0 +1,394 @@
+Watching for file changes with StatReloader
+[18/Jan/2026 11:07:38] "GET /admin/order/order/ HTTP/1.1" 302 0
+Internal Server Error: /api/products/
+Traceback (most recent call last):
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: product_product.stock
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/serializers.py", line 795, in data
+    ret = super().data
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/query.py", line 280, in __iter__
+    self._fetch_all()
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: product_product.stock
+[18/Jan/2026 11:18:50] "GET /api/products/?category=%EB%8F%84%EC%8B%9C%EB%9D%BD HTTP/1.1" 500 173963
+[18/Jan/2026 11:18:50,828] - Broken pipe from ('127.0.0.1', 52890)
+
+Internal Server Error: /api/products/
+Traceback (most recent call last):
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: product_product.stock
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/serializers.py", line 795, in data
+    ret = super().data
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/query.py", line 280, in __iter__
+    self._fetch_all()
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: product_product.stock
+[18/Jan/2026 11:18:50] "GET /api/products/?category=%EB%8F%84%EC%8B%9C%EB%9D%BD HTTP/1.1" 500 173963
+[18/Jan/2026 11:18:50,933] - Broken pipe from ('127.0.0.1', 52891)
+
+[18/Jan/2026 11:19:04] "OPTIONS /api/token/ HTTP/1.1" 200 0
+[18/Jan/2026 11:19:12] "OPTIONS /api/token/ HTTP/1.1" 200 0
+[18/Jan/2026 11:19:15] "OPTIONS /api/token/ HTTP/1.1" 200 0
+[18/Jan/2026 11:19:16] "OPTIONS /api/token/ HTTP/1.1" 200 0
+[18/Jan/2026 11:19:47] "OPTIONS /api/token/ HTTP/1.1" 200 0
+[18/Jan/2026 11:19:47] "OPTIONS /api/token/ HTTP/1.1" 200 0
+[18/Jan/2026 11:20:07] "GET / HTTP/1.1" 302 0
+[18/Jan/2026 11:20:07] "GET /api/ HTTP/1.1" 200 5267
+[18/Jan/2026 11:20:07] "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+[18/Jan/2026 11:20:07] "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+[18/Jan/2026 11:20:07] "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+[18/Jan/2026 11:20:07] "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+[18/Jan/2026 11:20:07] "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+[18/Jan/2026 11:20:07] "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+[18/Jan/2026 11:20:07] "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+[18/Jan/2026 11:20:07] "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+[18/Jan/2026 11:20:07] "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+[18/Jan/2026 11:20:07] "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+[18/Jan/2026 11:20:07] "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+[18/Jan/2026 11:20:07] "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+[18/Jan/2026 11:20:45] "OPTIONS /api/token/ HTTP/1.1" 200 0
+[18/Jan/2026 11:26:03] "OPTIONS /api/token/ HTTP/1.1" 200 0
+[18/Jan/2026 11:26:10] "OPTIONS /api/token/ HTTP/1.1" 200 0
+[18/Jan/2026 11:26:12] "OPTIONS /api/token/ HTTP/1.1" 200 0
+[18/Jan/2026 11:26:25] "OPTIONS /api/token/ HTTP/1.1" 200 0
+[18/Jan/2026 11:26:25] "OPTIONS /api/token/ HTTP/1.1" 200 0
+Internal Server Error: /api/products/
+Traceback (most recent call last):
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: product_product.stock
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/serializers.py", line 795, in data
+    ret = super().data
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/query.py", line 280, in __iter__
+    self._fetch_all()
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: product_product.stock
+[18/Jan/2026 11:27:38] "GET /api/products/?category=%EB%8F%84%EC%8B%9C%EB%9D%BD HTTP/1.1" 500 173963
+[18/Jan/2026 11:27:38,744] - Broken pipe from ('127.0.0.1', 53035)
+
+Internal Server Error: /api/products/
+Traceback (most recent call last):
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: product_product.stock
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/serializers.py", line 795, in data
+    ret = super().data
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/query.py", line 280, in __iter__
+    self._fetch_all()
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: product_product.stock
+[18/Jan/2026 11:27:39] "GET /api/products/?category=%EB%8F%84%EC%8B%9C%EB%9D%BD HTTP/1.1" 500 173963
+[18/Jan/2026 11:27:39,286] - Broken pipe from ('127.0.0.1', 53036)
+
+Internal Server Error: /api/products/
+Traceback (most recent call last):
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: product_product.stock
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/serializers.py", line 795, in data
+    ret = super().data
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/query.py", line 280, in __iter__
+    self._fetch_all()
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: product_product.stock
+[18/Jan/2026 11:33:19] "GET /api/products/?category=%EB%8F%84%EC%8B%9C%EB%9D%BD HTTP/1.1" 500 173963
+[18/Jan/2026 11:33:19,888] - Broken pipe from ('127.0.0.1', 53113)
+
+Internal Server Error: /api/products/
+Traceback (most recent call last):
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such column: product_product.stock
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/serializers.py", line 795, in data
+    ret = super().data
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/rest_framework/serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/query.py", line 280, in __iter__
+    self._fetch_all()
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/macbookpro/Desktop/PaymentSystem/store-backend/payment/lib/python3.7/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such column: product_product.stock
+[18/Jan/2026 11:33:19] "GET /api/products/?category=%EB%8F%84%EC%8B%9C%EB%9D%BD HTTP/1.1" 500 173963
+[18/Jan/2026 11:33:19,986] - Broken pipe from ('127.0.0.1', 53114)
+
