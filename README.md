@@ -28,7 +28,7 @@ To avoid a confusing 404 when someone opens the project root in a browser, the p
 
 - API: Django REST Framework endpoints under `/api/...`. These are JSON APIs intended to be called by the frontend or other clients.
 
-- Frontend (React/Vite): served by Vite at `http://localhost:5173/` during development. The frontend talks to the API endpoints (e.g. `http://127.0.0.1:8000/api/...`). The frontend may also be built and served by a web server in production — in dev we keep them separate.
+- Frontend (React/Vite): served by Vite at `http://localhost:5173/` during development. The frontend talks to the API endpoints (e.g. `http://127.0.0.1:8000/api/`). The frontend may also be built and served by a web server in production — in dev we keep them separate.
 
 So: redirecting `/` → `/api/` only affects the Django app's root URL. To see the frontend, open `http://localhost:5173/`. To use the admin UI, open `http://127.0.0.1:8000/admin/` and log in with a superuser account.
 
